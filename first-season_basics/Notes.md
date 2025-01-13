@@ -92,3 +92,33 @@ The Go standard library is designed to be consistent across platforms, ensuring 
 Using Go Modules for Platform-Independent Code
 
 Go Modules help manage dependencies and ensure that cross-platform compatibility is maintained in source code. For example:
+
+## Implicit and Explicit type conversions
+
+Implicit type conversion, also known as type coercion, occurs automatically without explicit instructions from the programmer.
+
+Go does not support implicit type conversion between different types. This design decision prevents unintended errors that can occur when types are automatically coerced (e.g., converting a float to an int without realizing it).
+For example, you cannot directly assign a float64 to an int without explicitly converting it.
+
+```
+var x int = 10
+var y float64 = 20.5
+x = y // This will throw an error
+```
+
+Explicit type conversion requires the programmer to explicitly specify the type they want to convert a value to. 
+Go uses explicit type conversion to promote clarity and safety.
+
+```
+var x int = 10
+var y float64 = 20.5
+x = int(y) // Explicit conversion
+fmt.Println(x) // Outputs 20
+```
+
+Implicit conversions (type coercion) are common in other languages.
+
+## Editional notes
+\* In each folder, we must have just one package and package name.
+
+\* Reserved keywords in go are just 26 words which is very small.
