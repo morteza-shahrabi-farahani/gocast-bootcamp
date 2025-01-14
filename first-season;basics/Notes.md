@@ -122,7 +122,6 @@ Implicit conversions (type coercion) are common in other languages.
 
 \* One of the features of arrays is there size. The type of two array variables which have different sizes are not equal and we cannot assign them.
 
-
 \* At the time of initializing slices, go compiler assign capacity and length of the slice equally. For example if we make a slice with length of 5, the compiler automatically set the capacity 5.
 But if you append an element to the slice and overcome its length, the compiler first 
 make the capacity of the slice twice the last value and then add element to the slice.
