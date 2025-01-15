@@ -73,3 +73,12 @@ when we pass variable as value to the functions, the compiler makes a new variab
 If we assign a slice variable to a new variable, it assigns the pointer. So if you
 change the new variable, the original slice is also changed. If you want this situation
 not happened, you should use copy keyword.
+
+## Aditional notes
+
+\* It is important to pay attention to this role. Single responsibility of the functions, stories and ... which is also mentioned in SOLID principles.
+When writing codes, try to consider this role.
+
+\* Every complex program, is formed from combination of multiple easy tasks. So the most
+important point when encountering big progras, is to not be afraid from the complexity of program.
+Just use divide and conquer paradigm, conquer the program to multiple easy tasks and then conquer them :)
