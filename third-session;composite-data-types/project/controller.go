@@ -9,13 +9,12 @@ import (
 func getCommands(csvFile *os.File) error {
 	command := flag.String("command", "list", "Please enter the command")
 	region := flag.String("region", "Tehran", "This command specifies the city of the agency.")
-	fmt.Println(region)
 	flag.Parse()
 
 	switch *command {
 
 	case "list":
-		agencies, err := list(csvFile)
+		agencies, err := list(csvFile, *region)
 		if err != nil {
 			return err
 		}

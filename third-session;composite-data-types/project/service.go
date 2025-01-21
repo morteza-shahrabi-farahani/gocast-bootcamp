@@ -10,7 +10,7 @@ const (
 	TimeLayout = "2006-01-02 15:04:05"
 )
 
-func list(csvFile *os.File) ([]Agency, error) {
+func list(csvFile *os.File, region string) ([]Agency, error) {
 	rows, err := readCSVFile(csvFile)
 	if err != nil {
 		return nil, err
@@ -23,18 +23,21 @@ func list(csvFile *os.File) ([]Agency, error) {
 			return nil, err
 		}
 
-		time, err := time.Parse(TimeLayout, row[4])
+		time, err := time.Parse(TimeLayout, row[5])
 
-		employeesCount, err := strconv.Atoi(row[5])
+		employeesCount, err := strconv.Atoi(row[6])
 		if err != nil {
 			return nil, err
 		}
 
+		if region == row[1] {
+
+		}
 		agencies = append(agencies, Agency{
 			ID:                   int64(id),
-			Name:                 row[1],
-			Address:              row[2],
-			PhoneNumber:          row[3],
+			Name:                 row[2],
+			Address:              row[3],
+			PhoneNumber:          row[4],
 			RegistrationDate:     time,
 			AgencyEmployeesCount: int32(employeesCount),
 		})
