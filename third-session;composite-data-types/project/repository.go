@@ -2,15 +2,15 @@ package companyagencies
 
 import (
 	"encoding/csv"
+	"fmt"
 	"os"
 )
 
-func connectToCSV() (*os.File, error) {
+func ConnectToCSV() (*os.File, error) {
 	csv, err := os.Open("data/data.csv")
 	if err != nil {
 		return nil, err
 	}
-	defer csv.Close()
 
 	return csv, nil
 }
@@ -23,4 +23,16 @@ func readCSVFile(file *os.File) ([][]string, error) {
 	}
 
 	return rows, nil
+}
+
+func writeAgencyToCSV(csvFile *os.File, agency []string) error {
+	csvwriter := csv.NewWriter(csvFile)
+
+	fmt.Println(agency)
+	err := csvwriter.Write(agency)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
