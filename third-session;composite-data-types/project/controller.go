@@ -24,15 +24,16 @@ func getCommands(csvFile *os.File) error {
 		}
 
 	case "get":
-		// var id int64
-		// fmt.Println("Please enter id of the agency")
-		// fmt.Scanf("%d", &id)
-		// agency, err := get(csvFile, id)
-		// if err != nil {
-		// 	return nil, err
-		// }
+		var id int64
+		fmt.Println("Please enter id of the agency")
+		fmt.Scanf("%d", &id)
 
-		// fmt.Printf("%+v\n", agency)
+		agency, err := get(csvFile, id)
+		if err != nil {
+			return err
+		}
+
+		fmt.Printf("%+v\n", agency)
 	case "create":
 		// create()
 	case "edit":
