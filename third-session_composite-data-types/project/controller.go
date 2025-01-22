@@ -79,12 +79,21 @@ func GetCommands(csvFile *os.File, isFistTime bool) error {
 
 		fmt.Println("id of the inserted agency is ", agencyID)
 
-	case "edit":
-		// edit()
 	case "status":
-		// status()
+		agencies, agencyEmployeesCount, err := status(csvFile, *region)
+		if err != nil {
+			return err
+		}
+
+		for _, agency := range agencies {
+			fmt.Printf("%+v\n", agency)
+		}
+
+		fmt.Println("total number of agency employees: ", agencyEmployeesCount)
+
 	case "exit":
-		// exit()
+		os.Exit(0)
+		
 	default:
 		fmt.Println("Please enter the valid command")
 	}
