@@ -2,12 +2,12 @@ package companyagencies
 
 import (
 	"encoding/csv"
-	"fmt"
+	"io"
 	"os"
 )
 
 func ConnectToCSV() (*os.File, error) {
-	csv, err := os.Open("data/data.csv")
+	csv, err := os.OpenFile("data/data.csv", os.O_APPEND|os.O_CREATE|os.O_RDWR, 0644)
 	if err != nil {
 		return nil, err
 	}
@@ -16,6 +16,11 @@ func ConnectToCSV() (*os.File, error) {
 }
 
 func readCSVFile(file *os.File) ([][]string, error) {
+	_, err := file.Seek(0, io.SeekStart)
+	if err != nil {
+		return nil, err
+	}
+
 	reader := csv.NewReader(file)
 	rows, err := reader.ReadAll()
 	if err != nil {
@@ -26,10 +31,20 @@ func readCSVFile(file *os.File) ([][]string, error) {
 }
 
 func writeAgencyToCSV(csvFile *os.File, agency []string) error {
-	csvwriter := csv.NewWriter(csvFile)
+	_, err := csvFile.Seek(0, io.SeekEnd)
+	if err != nil {
+		return err
+	}
 
-	fmt.Println(agency)
-	err := csvwriter.Write(agency)
+	csvwriter := csv.NewWriter(csvFile)
+	defer csvwriter.Flush()
+
+	err = csvwriter.Write(agency)
+	if err != nil {
+		return err
+	}
+
+	_, err = csvFile.Seek(0, io.SeekStart)
 	if err != nil {
 		return err
 	}

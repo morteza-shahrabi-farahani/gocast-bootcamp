@@ -1,6 +1,7 @@
 package companyagencies
 
 import (
+	"errors"
 	"os"
 	"strconv"
 	"time"
@@ -54,6 +55,10 @@ func get(csvFile *os.File, id int64) (*Agency, error) {
 }
 
 func parseAgencyFromCSV(CSVRow []string) (*Agency, error) {
+	if len(CSVRow) < 6 {
+		return nil, errors.New("invalid CSV row")
+	}
+
 	id, err := strconv.Atoi(CSVRow[0])
 	if err != nil {
 		return nil, err
@@ -99,5 +104,6 @@ func convertAgencyToString(agency *Agency) []string {
 	stringID := strconv.Itoa(int(agency.ID))
 	stringEmployeesCount := strconv.Itoa(int(agency.AgencyEmployeesCount))
 
-	return []string{stringID, agency.Region, agency.Name, agency.Address, agency.RegistrationDate.String(), stringEmployeesCount}
+	return []string{stringID, agency.Region, agency.Name, agency.Address, agency.PhoneNumber,
+		agency.RegistrationDate.String(), stringEmployeesCount}
 }
