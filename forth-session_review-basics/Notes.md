@@ -20,3 +20,19 @@ for index, value := range tempStr {
 the compiler assign int type to it. And the size of int variable, depends on the cpu of the system 
 which the program is running on it. If it is 32 bytes system, it would be int32 and otherwise, it
 would be int64
+
+\* use go mod init {name_of_the_package} to create go.mod for your package.
+
+\* Every go program, need a main package and a main function for running
+
+\* Dgraph => graph database
+
+\* GOROOT is an environment variable that defines the location of your Go SDK. 
+It means you can find the compiler, go tools or, standard libraries in this directory.
+GOPATH is another environment variable. It defines the locations of your go source codes.
+If this variable includes more than one location, these locations are separated by columns (semicolon separated for Windows).
+When your code has any imported package, this package has to be located here.
+
+\* Thanks to Go modules, which is a new method to manage dependencies, 
+you don't have to use $GOPATH/src for your projects since Go 1.11.
+However, pkg and bin folders are still used.
