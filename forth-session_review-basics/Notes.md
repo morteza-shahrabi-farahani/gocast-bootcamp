@@ -36,3 +36,11 @@ When your code has any imported package, this package has to be located here.
 \* Thanks to Go modules, which is a new method to manage dependencies, 
 you don't have to use $GOPATH/src for your projects since Go 1.11.
 However, pkg and bin folders are still used.
+
+\* zero value of rune is 0
+
+\* You can use just return for returning values of the function in go. But as far as code readability is concerned, it is better to write their names when returning variables.
+
+\* In go we don't have try catch and throw exception. Instead, where ever we have error, we should return it from the function.
+
+\* If we specify the length of the slice, it become array not slice. So later we cannot change its size and its size is fixed. If you can choose both array and a slice for a purpose, it is better to use array because it is safer.
