@@ -44,3 +44,26 @@ However, pkg and bin folders are still used.
 \* In go we don't have try catch and throw exception. Instead, where ever we have error, we should return it from the function.
 
 \* If we specify the length of the slice, it become array not slice. So later we cannot change its size and its size is fixed. If you can choose both array and a slice for a purpose, it is better to use array because it is safer.
+
+\* If we define a slice with a capacity, we can add more than its capacity using append function of the slice.
+
+\* type definition
+```
+type test int
+```
+
+type alias
+```
+type newTest = test
+```
+
+now we can assign variable of type test to variable of type newTest
+
+```
+var a = test(2)
+b := a
+```
+
+and if you write type of these two variables, you will get test for both of them.
+
+When we use this? when we want slice of type test and we have also variable of type newTest. Because of this feature, we can add variable of type newTest to the array of type test. 
