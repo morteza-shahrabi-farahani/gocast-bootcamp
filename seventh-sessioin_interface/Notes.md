@@ -29,3 +29,19 @@ In this new way, if the storage field of the app changed, the code of the App wo
 \* interface is like an contract. We specify the behavior and the methods which we expect from an entity init.
 
 \* Unlike other programming languages, we don't specifically say that each type implements which interfaces. However, if the type has all the required methods of the interface, it will automatically can be used as a variable of that interface. It is a good capability of go over other programming languages. Consider a situation, in which we define an interface and one of the types of the public packages can be used as variable of this interface. But if we have this scenario in other languages, it become harder to handle this situation because in the implementation of that public type or method, we must explicitly mention that type implements that interface. We call this feature in go, composition over inheritance.
+
+\* Interface helps us to compose different functionalities and behaviors. Each interface just focouses on implementing each methods. But by composing different interfaces, we can achieve new behaviors and functionalities.
+
+\* When we use a variable of interface in a type, we should just use the functionality of that interface from that variable. We just call its methods.
+
+\* We don't have inheritance in go.
+
+\* For printing in the desired format, we can implement stringer interface.
+
+\* error is an interface in golang and not type. Every type which implement ```Error() string``` method, become type of error. One of the benefits of being interface, is that there zero value is nil. So if we don't have error, we can return nil. 
+
+## type assertion 
+
+```
+typeValue := tempString.(tempType)
+```
