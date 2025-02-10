@@ -1,0 +1,3 @@
+For accessing methods of a type in another type, you should embed that type to another struct. But pay attention that this is not type field and it must not have field name. If it has field names, you don't have access to methods of that type in outer type. We called this method and type embedding.
+
+\* The programming contains many approaches for each problem that do you have. And in every situation, you should choose one of these ways that you think is better and the cost of change in the future would be less.
