@@ -1,0 +1,1 @@
+\* The data in the Header and payload part of the JWT can be achieved without using the secret key in the signiture part. So we must avoid putting secret data in payload and header part of the JWT.
