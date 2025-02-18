@@ -20,3 +20,12 @@ The good thing about some external router packages instead of default router of 
 
 \* CORS origin middleware is a middleware in which we say that which IP addresses are ligal for requesting to our website.
 
+## 14th Session
+\* We shoulden't use comments for clarifying what the code is doing; We should use comments for saying why some parts of the code is written. 
+
+\* It is better to use config for some hardcoded parts. If we use config, for changing the config variables we don't need to build the application again and publish it on production. We can simply just change the config variables.
+
+\* Our validations must be done at business logic layer not the database layer. We must use uniqueness and other features on the database, but in the business layer, we should not rely on the database and we should handle all the logic in business layer itself.
+
+
+
