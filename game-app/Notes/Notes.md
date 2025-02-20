@@ -27,5 +27,9 @@ The good thing about some external router packages instead of default router of 
 
 \* Our validations must be done at business logic layer not the database layer. We must use uniqueness and other features on the database, but in the business layer, we should not rely on the database and we should handle all the logic in business layer itself.
 
+## 15th Session
+
+\* Lousely coupled is using interface and some methdos that are required from external package, instead of importing full package and use that methods. This way is better.
+
 
 
