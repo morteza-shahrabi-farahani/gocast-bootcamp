@@ -9,3 +9,9 @@ Notice that the last statement is different from doing something and force the p
 \* We should avoid having a shared variable between goroutines using defining global variables.
 
 "Do not communicate by sharing memory; instead, share memory by communicating."
+
+\* Map in go is not concurrently safe.
+
+\* If we just have receiver for the channel and don't have any sender for that channel, deadlock will happened.
+
+\* After that we sure we won't send any value to a channel, we should close it so that we won't get deadlock anymore in receiver part. However, if we try to write on a close channel, we will get panic.
