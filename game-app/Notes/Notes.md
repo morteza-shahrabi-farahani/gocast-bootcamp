@@ -31,5 +31,11 @@ The good thing about some external router packages instead of default router of 
 
 \* Lousely coupled is using interface and some methdos that are required from external package, instead of importing full package and use that methods. This way is better.
 
+## 17th Session
+
+\* The service layer interacts with the upper layers using types that defined in dto. 
+
+\* closure is a function which returns another function.
+
 
 
